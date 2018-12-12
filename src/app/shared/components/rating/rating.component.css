@@ -1,0 +1,5 @@
+.rated-star { margin-top: 8px; }
+.rated-star li { padding: 0; position: relative; margin: 0 3px; }
+.rated-star li i.colored { color: #bc9f6e; }
+.rated-star li i { color: #001325; }
+.rated-star li i.decimal { position: absolute; left: 0; top: 0px; overflow: hidden; }

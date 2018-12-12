@@ -1,0 +1,33 @@
+<div class="right-content">
+  <div class="col-lg-10 offset-lg-1">
+    <h4 class="title pb35">{{'REFER_FRIEND.TITLE' | translate}}</h4>
+    <div class="how-work">
+      <h4 class="heading">{{'REFER_FRIEND.HEADING' | translate}}</h4>
+      <p>{{'REFER_FRIEND.HEADING_LINE_1' | translate}}</p>
+      <p>{{'REFER_FRIEND.HEADING_LINE_2' | translate}}</p>
+    </div>
+    <div class="referral-container">
+      <div class="copy-title">{{'REFER_FRIEND.COPY_LINK' | translate}}</div>
+      <div class="frm-input-btn-grp">
+        <input type="text" value="{{shareUrl}}" class="form-control" name="" #shareLink>
+        <input type="submit" class="btn green" value="copy" name="" (cbOnSuccess)="onCopySuccess()" [ngxClipboard]="shareLink">
+      </div>
+      <div class="copy-title mt40">{{'REFER_FRIEND.SHARE_CODE' | translate}}</div>
+      <div class="frm-input-btn-grp">
+        <input type="text" value="{{referralCode}}" class="form-control" name="" #shareCode>
+        <input type="submit" class="btn" value="copy" name="" (cbOnSuccess)="onCopySuccess()" [ngxClipboard]="shareCode">
+      </div>
+    </div>
+    <ul class="social-share">
+      <li>
+<a shareButton="facebook" url="{{shareUrl}}"><img src="assets/images/facebook.png" class="img-fluid" /></a>
+      </li>
+      <li>
+<a shareButton="twitter" url="{{shareUrl}}"><img src="assets/images/twitter.png" class="img-fluid" /></a>
+      </li>
+      <li>
+<a shareButton="google" url="{{shareUrl}}"><img src="assets/images/google-plus.png" class="img-fluid" /></a>
+      </li>
+    </ul>
+  </div>
+</div>

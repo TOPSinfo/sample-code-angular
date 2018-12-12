@@ -1,0 +1,25 @@
+.pac-container {
+  z-index: 9999999999 !important;
+}
+
+.custom-modal.edit-address-modal{
+	padding: 22px 14px;
+}
+.custom-modal.edit-address-modal .signup-container{
+	padding: 0;
+}
+.custom-modal.edit-address-modal .signup-card .appointment-label{
+	margin-top: 36px;
+    margin-bottom: 38px;
+}
+.custom-modal.edit-address-modal.custom-modal .button-group{
+	margin-top: 32px;
+}
+.custom-modal.edit-address-modal.custom-modal .button-group .btn{
+	width: 100%;
+	margin: 0 0 18px;
+}
+.custom-modal.edit-address-modal.custom-modal .button-group .btn-golden.btn-next {
+    margin-top: 54px;	    
+}
+

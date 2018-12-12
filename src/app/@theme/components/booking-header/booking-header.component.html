@@ -1,0 +1,309 @@
+<header class="header">
+  <div class="booking-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 align-self-center">
+          <a href="javascript:void(0)" class="back-home" [routerLink]="['/']" >
+            back to homepage
+          </a>
+        </div>
+        <div class="col-12 col-lg-4 align-self-center">
+          <a href="javascript:void(0)" class="logo">
+            <img src="assets/images/bird-color.png" alt="logo" />
+          </a>
+        </div>
+        <div class="col-6 col-lg-4 align-self-center text-right d-none d-sm-block">
+          <div ngbDropdown class="login-user" *ngIf="loggedIn">
+            <a class="user-detail" id="dropdownBasic1" ngbDropdownToggle>
+              <span>{{userName}}</span>
+            <img src="{{userImage}}" alt="usr-profile" />
+            </a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button class="dropdown-item"  [routerLink]="['/my-account/appointments']" routerLinkActive="active">appoitments</button>
+              <button class="dropdown-item" [routerLink]="['/my-account/wallet']">wallet</button>
+              <button class="dropdown-item" [routerLink]="['/my-account/refer-friend']">refer a friend</button>
+              <button class="dropdown-item border-none" routerLink="/my-account">my profile</button>
+              <button class="btn btn-golden" (click)="logout()">log out</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <div class="steps-container">
+            <ul>
+              <li *ngIf="bookingFlow === 'home'" [ngClass]="{'completed active': bookingDetails.address}"><!-- ==========add 'completed' class for completed step========== -->
+              <span class="step-number">1<span class="step-name">postcode</span></span>
+            </li>
+            <li [ngClass]="{'completed active': bookingDetails.treatmentId ||  stateName === 'treatments'}" [routerLink]="['/booking/treatments']" queryParamsHandling="preserve"><!-- ==========add 'active' class for current step========== -->
+            <span class="step-number">{{bookingFlow === 'treatment' ? '1' : '2'}}<span class="step-name">treatment</span></span>
+          </li>
+          <li *ngIf="bookingFlow === 'treatment'" [ngClass]="{'completed active': bookingDetails.address}"><!-- ==========add 'completed' class for completed step========== -->
+            <span class="step-number">2<span class="step-name">postcode</span></span>
+          <li [ngClass]="{'completed active': bookingDetails.therapistId ||  stateName === 'therapists'}" [routerLink]="['/booking/therapists']" queryParamsHandling="preserve">
+            <span class="step-number">
+              3
+              <span class="step-name">therapist</span>
+            </span>
+          </li>
+          <li>
+            <span class="step-number">
+              4
+              <span class="step-name">payment</span>
+            </span>
+          </li>
+          <li>
+            <span class="step-number">
+              5
+              <span class="step-name">confirmation</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="process-bar">
+  <div class="container">
+    <div class="process-container">
+      <div class="process address" [ngClass]="{'active': bookingDetails.address}">
+        <span class="process-check"></span>
+        <div class="process-detail">
+          <div class="process-title">
+            <h5 class="title">address</h5>
+            <a href="javascript:void(0)" class="edit-detail" (click)="open()">
+              <span class="icon-edit"></span>
+            </a>
+          </div>
+          <div class="process-description">
+            <p>{{bookingDetails.address}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="process" [ngClass]="{'active': bookingDetails.date}">
+        <span class="process-check"></span>
+        <div class="process-detail">
+          <div class="process-title">
+            <h5 class="title">date</h5>
+            <a href="javascript:void(0)" class="edit-detail" placement="bottom" #pDate="ngbPopover" [ngbPopover]="datePickerPopOver" [autoClose]="'outside'">
+              <span class="icon-edit"></span>
+            </a>
+          </div>
+          <div class="process-description">
+            <p>{{ bookingDetails.date.day }}/{{bookingDetails.date.month}}/{{bookingDetails.date.year}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="process" [ngClass]="{'active': bookingDetails.time}">
+        <span class="process-check"></span>
+        <div class="process-detail">
+          <div class="process-title">
+            <h5 class="title">time</h5>
+            <a href="javascript:void(0)" class="edit-detail" placement="bottom" #pTime="ngbPopover" [ngbPopover]="timePopOver" [autoClose]="'outside'">
+              <span class="icon-edit"></span>
+            </a>
+          </div>
+          <div class="process-description">
+            <p>{{ bookingDetails.time }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="process therapist-count" [ngClass]="{'active': bookingDetails.therapists}">
+        <span class="process-check"></span>
+        <div class="process-detail">
+          <div class="process-title">
+            <h5 class="title">n° of therapists</h5>
+            <a href="javascript:void(0)" class="edit-detail" placement="bottom" #p2="ngbPopover" [ngbPopover]="therapistPopOver" [autoClose]="'outside'">
+              <span class="icon-edit"></span>
+            </a>
+          </div>
+          <div class="process-description">
+            <p>{{ bookingDetails.therapists }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="process therapist-count" [ngClass]="{'active': bookingDetails.treatmentId}">
+        <span class="process-check"></span>
+        <div class="process-detail">
+          <div class="process-title" [routerLink]="['/booking/treatments']" queryParamsHandling="preserve">
+            <h5 class="title">treatment</h5>
+            <a href="javascript:void(0)" class="edit-detail">
+              <span class="icon-edit"></span>
+            </a>
+          </div>
+          <div class="process-description">
+            <p></p>
+          </div>
+        </div>
+      </div>
+      <div class="process therapist-count" [ngClass]="{'active': bookingDetails.duration}">
+        <span class="process-check"></span>
+        <div class="process-detail">
+          <div class="process-title">
+            <h5 class="title">length</h5>
+            <a href="javascript:void(0)" class="edit-detail" (click)="openLength()">
+              <span class="icon-edit"></span>
+            </a>
+          </div>
+          <div class="process-description">
+            <p>{{bookingDetails.duration}} </p>
+          </div>
+        </div>
+      </div>
+      <div class="process therapist-count" [ngClass]="{'active': bookingDetails.addOnId}">
+        <span class="process-check"></span>
+        <div class="process-detail">
+          <div class="process-title">
+            <h5 class="title">add on</h5>
+            <a href="javascript:void(0)" class="edit-detail" (click)="openAddOn(addOn)">
+              <span class="icon-edit"></span>
+            </a>
+          </div>
+          <div class="process-description">
+            <p>{{bookingDetails.addOnName}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+<ng-template #datePickerPopOver>
+  <ngb-datepicker dateFormat="DD/MM/YYYY" [(ngModel)]="bookingDetails.date" (select)="popoverDateChange($event,pDate)"></ngb-datepicker>
+</ng-template>
+
+<ng-template #timePopOver>
+  <div class="time-slot-edit-container">
+    <perfect-scrollbar style="max-height: 288px;height: auto;" class="scroll-container">
+      <ul class="time-slot-edit-ul">
+          <li><a href="javascript:void(0);" (click)="seletedTime('9:30 AM')">9:30 AM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('10:00 AM')">10:00 AM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('10:30 AM')">10:30 AM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('11:00 AM')">11:00 AM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('11:30 AM')">11:30 AM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('12:00 AM')">12:00 AM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('12:30 AM')">12:30 AM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('1:00 PM')">1:00 PM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('1:30 PM')">1:30 PM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('2:00 PM')">2:00 PM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('2:30 PM')">2:30 PM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('3:00 PM')">3:00 PM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('3:30 PM')">3:30 PM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('4:00 PM')">4:00 PM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('4:30 PM')">4:30 PM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('5:00 PM')">5:00 PM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('5:30 PM')">5:30 PM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('6:00 PM')">6:00 PM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('6:30 PM')">6:30 PM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('7:00 PM')">7:00 PM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('6:30 PM')">7:30 PM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('8:00 PM')">8:00 PM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('8:30 PM')">8:30 PM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('9:00 PM')">9:00 PM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('9:30 PM')">9:30 PM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('10:00 PM')">10:00 PM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('10:30 PM')">10:30 PM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('11:00 PM')">11:00 PM</a></li>
+          <li><a href="javascript:void(0);" (click)="seletedTime('11:30 PM')">11:30 PM</a></li>
+      </ul>
+    </perfect-scrollbar>
+    <a href="javascript:void(0)" class="next-time" (click)="scrollToBottom()">
+      <img src="assets/images/down-white.png" alt="logo" />      
+    </a>
+  </div>
+</ng-template>
+
+<ng-template #therapistPopOver>
+  <div class="therapist-list">
+    <ul>
+      <li>
+        <label class="fancy-radio">
+          <input type="radio" name="therapist" value="1" [(ngModel)]="bookingDetails.therapists" (change)="updateFindTherapistQuery('therapists',1,p2)"><span><i></i>
+          1 Therapist
+          </span>
+        </label>
+      </li>
+      <li>
+        <label class="fancy-radio">
+          <input type="radio" name="therapist2" value="2" [(ngModel)]="bookingDetails.therapists" (change)="updateFindTherapistQuery('therapists',2,p2)"><span><i></i>
+          2 Therapists
+          </span>
+        </label>
+      </li>
+    </ul>
+  </div>
+</ng-template>
+
+
+<ng-template #length let-modal>  
+  <div class="modal-body custom-modal">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <img src="assets/images/close.png" alt="logo" />
+    </button>
+    <div class="length-addon-content">
+      <div class="title-icon text-center">
+        <img src="assets/images/bird-color.png" alt="logo" />
+        <h2 class="title">length</h2>
+      </div>
+      <ul class="length-addon-list">
+        <li>          
+            <div class="item">
+                <label class="fancy-radio">
+                  <input type="radio" name="therapist" value="1" checked><span><i></i>90 min<span class="price">£+20</span>
+                  </span>
+                </label>
+             </div>                        
+        </li>
+        <li>          
+            <div class="item">
+                <label class="fancy-radio">
+                  <input type="radio" name="therapist" value="1" checked><span><i></i>120 min<span class="price">£+50</span>
+                  </span>
+                </label>
+             </div>                        
+        </li>
+      </ul>
+      <div class="button-group">
+        <input type="submit" class="btn btn-golden-outline" value="skip" name="">
+        <input type="submit" class="btn btn-golden" value="add" name="">
+      </div>
+    </div>
+  </div>  
+</ng-template>
+
+<ng-template #addOn let-modal>  
+  <div class="modal-body custom-modal">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <img src="assets/images/close.png" alt="logo" />
+    </button>
+    <div class="length-addon-content">
+      <div class="title-icon text-center">
+        <img src="assets/images/bird-color.png" alt="logo" />
+        <h2 class="title">add on</h2>
+      </div>
+      <ul class="length-addon-list">
+        <li>          
+            <div class="item">
+                <label class="fancy-checkbox style-radio">
+                  <input type="checkbox"><span><i></i>Shellac Removal<span class="price">+£10</span></span>
+                </label>
+             </div>                        
+        </li>
+        <li>          
+            <div class="item">
+                <label class="fancy-checkbox style-radio">
+                  <input type="checkbox"><span><i></i>Shellac Removal<span class="price">+£10</span></span>
+                </label>
+             </div>                       
+        </li>
+      </ul>
+      <div class="button-group">
+        <input type="submit" class="btn btn-golden-outline" value="skip" name="">
+        <input type="submit" class="btn btn-golden" value="add" name="">
+      </div>
+    </div>
+  </div>
+</ng-template>

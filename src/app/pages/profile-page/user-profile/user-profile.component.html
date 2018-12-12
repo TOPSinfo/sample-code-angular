@@ -1,0 +1,120 @@
+<div class="right-content" card-body>
+  <div class="row" *ngIf="!isMobileChanged">
+    <div class="col-lg-5 offset-lg-1 order-lg-6">
+      <div class="signup-card profile-add-address">
+        <form>
+          <div class="form-group">
+            <label>home</label>
+            <textarea class="form-control" rows="3">{{address}}</textarea>
+            <!-- <input class="form-control" type="text" placeholder="set your home address now" [value]='address' disabled> -->
+            <a [routerLink]="['./address']"><img class="img-fluid" src="assets/images/edit.png"></a>
+          </div>
+          <!-- <div class="form-group">
+						<label>work</label>
+						<input class="form-control" type="text" placeholder="set your home address now">
+						<a href="#"><img class="img-fluid" src="assets/images/edit.png"></a>
+					</div>
+					<div class="form-group">
+						<label>custom</label>
+						<input class="form-control" type="text" placeholder="set your home address now">
+						<a href="#"><img class="img-fluid" src="assets/images/edit.png"></a>
+					</div>
+					<div class="button-group">
+						<input class="btn btn-golden" type="submit" value="add new address">
+					</div> -->
+        </form>
+      </div>
+    </div>
+    <div class="col-lg-5 offset-lg-1">
+      <div class="signup-card profile-signup-card">
+        <form [formGroup]="userBasicInfoForm" (ngSubmit)="saveUserProfile()">
+          <div class="form-group">
+            <select class="form-control" formControlName="title">
+              <option value="mr">mr</option>
+              <option value="mrs">mrs</option>
+              <option value="miss">miss</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" formControlName="firstName" placeholder="first name">
+            <div *ngIf="isSaveBtnClicked && f.firstName.errors" class="text-danger error-label">
+              <div *ngIf="f.firstName.errors.required"> {{ 'ERROR.FIRST_NAME' | translate }}</div>
+              <div *ngIf="f.firstName.errors.pattern"> {{ 'ERROR.FIRST_NAME_NOT_VALID' | translate }}</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" formControlName="lastName" placeholder="last name">
+            <div *ngIf="isSaveBtnClicked && f.lastName.errors" class="text-danger error-label">
+              <div *ngIf="f.lastName.errors.pattern"> {{ 'ERROR.LAST_NAME_NOT_VALID' | translate }}</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" formControlName="houseNumber" placeholder="house number">
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" formControlName="streetName" placeholder="street name">
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" formControlName="postalCode" placeholder="postal code">
+          </div>
+          <div class="form-group">
+<input class="form-control" type="text" #mobref (keyup)='allowNumeric(mobref)' maxlength=10 formControlName="mobileNumber"
+              placeholder="mobile number">
+            <div *ngIf="isSaveBtnClicked && f.mobileNumber.errors" class="text-danger error-label">
+              <div *ngIf="f.mobileNumber.errors.required"> {{ 'ERROR.MOBILE' | translate }}</div>
+              <div *ngIf="f.mobileNumber.errors.pattern"> {{ 'ERROR.MOBILE_NOT_VALID' | translate }}</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="email" formControlName="email" placeholder="email">
+            <div *ngIf="isSaveBtnClicked && f.email.errors" class="text-danger error-label">
+              <div *ngIf="f.email.errors.required"> {{ 'ERROR.EMAIL' | translate }}</div>
+              <div *ngIf="f.email.errors.pattern"> {{ 'ERROR.EMAIL_NOT_VALID' | translate }}</div>
+            </div>
+          </div>
+          <label class="fancy-checkbox">
+            <input type="checkbox" formControlName="subscription"><span><i></i>
+              <p>I would like to receive exclusive offers, events &amp; news from London Serenity</p>
+            </span>
+          </label>
+          <div class="button-group">
+            <input class="btn btn-golden" type="submit" value="save changes">
+            <button class="btn btn-golden new-password" type="button" value="request new password" (click)="openChangePassword(content)">request
+              new password</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+  <div *ngIf="isMobileChanged">
+    <div class="row">
+      <div class="col-lg-5 offset-lg-3">
+        <div class="signup-card">
+          <h5 class="step-title">edit number</h5>
+          <p class="appointment-label">{{ 'SIGNUP.VERIFY_MOBILE_MSG' | translate }}</p>
+          <form (ngSubmit)="verifyOtp()" [formGroup]="verifyMobileForm">
+            <div class="form-group">
+              <input type="text" formControlName="otp" class="form-control" placeholder="OTP" />
+              <div *ngIf="verifyMobileFormSubmitted && f2.otp.errors" class="text-danger error-label">
+                <div *ngIf="f2.otp.errors.required"> {{ 'ERROR.OTP' | translate }}</div>
+              </div>
+            </div>
+            <div class="button-group text-center">
+              <button type="button" (click)="sendOtp()" class="btn btn-golden" [disabled]="isRequestedForOtp">{{
+                'SIGNUP.RESEND_OTP' | translate
+                }} <span *ngIf="resendTimer !== 0 ">{{resendTimer}} </span></button>
+              <input type="submit" value="VERIFY" class="btn btn-golden">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <app-change-password (closeChangePassword)="modal.dismiss('Cross click')"></app-change-password>
+</ng-template>

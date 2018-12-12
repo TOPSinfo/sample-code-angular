@@ -1,0 +1,90 @@
+<!-- <div class="row">
+    <div class="col-lg-5 offset-lg-3"> -->
+
+<div class="modal-body custom-modal edit-address-modal">
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+        <img src="assets/images/close.png" alt="logo" />
+      </button>
+    <div class="signup-container">
+       <div class="signup-card" *ngIf="step === 1">
+        <h5 class="step-title">{{ 'SIGNUP.ADDRESS_TITLE' | translate }}</h5>
+        <p class="appointment-label">{{ 'SIGNUP.APPOINTMENT' | translate }}</p>
+        <!-- <p>step: {{step}}</p> -->
+  
+        <form (ngSubmit)="submitStepOne()" [formGroup]="editStepOneForm" (keydown.enter)="$event.preventDefault()">
+          <div class="form-group">
+            <input type="text" formControlName="location" ngx-google-places-autocomplete #placeRef="ngx-places"
+                    (onAddressChange)="getAddress($event)" (keyup)="resetValidationFlags()" [options]="searchOptions"
+                    class="form-control" placeholder="{{ 'INPUT.ADDRESS' | translate }}" />
+            <div *ngIf="stepOneSubmitted && f1.location.errors" class="text-danger error-label">
+              <div *ngIf="f1.location.errors.required"> {{ 'ERROR.LOCATION' | translate }}</div>
+            </div>
+            <div *ngIf="!isGoogleFormatted" class="text-danger error-label">
+              {{ 'ERROR.GOOGLE_LOCATION' | translate }}
+            </div>
+            <div *ngIf="!isPostalCodeDetectedByGoogle" class="text-danger error-label">
+              <div> {{ 'ERROR.NO_POSTAL_CODE' | translate }}</div>
+            </div>
+            <div *ngIf="!isLondonCity" class="text-danger error-label">
+              <div> {{ 'ERROR.NOT_SERVING_LOC' | translate }}</div>
+            </div>
+          </div>
+          <p class="p-or">{{ 'SIGNUP.OR' | translate }}</p>
+          <div class="button-group">
+            <button type="button" (click)="findMe()" class="btn btn-golden">{{ 'SIGNUP.FIND_ME' | translate
+              }}</button>
+            <input type="submit" value="{{ 'SIGNUP.NEXT' | translate }}" class="btn btn-golden btn-next">
+  <!-- <input type="button" value="{{ 'SIGNUP.BACK' | translate }}" (click)="location.back()" class="btn btn-golden"> -->
+          </div>
+        </form>
+        <!-- <p>step: {{step}}</p> -->
+  
+      </div>
+      <div class="signup-card" *ngIf="step === 2">
+        <h5 class="step-title">{{ 'SIGNUP.CONFIRM_ADDRESS_TITLE' | translate }}</h5>
+        <form (ngSubmit)="submitForm(false)" [formGroup]="editStepTwoForm">
+          <div class="map-container">
+            <!-- <img src="assets/images/map.png" class="img-fluid"> -->
+            <div class="img-fluid">
+              <agm-map [latitude]="mapAttributes.lat" [longitude]="mapAttributes.lng" [zoomControl]="mapAttributes.zoomControls"
+                [disableDefaultUI]="true" style="height: 150px" [zoom]="mapAttributes.zoom">
+                <agm-marker [latitude]="mapAttributes.lat" [longitude]="mapAttributes.lng"></agm-marker>
+              </agm-map>
+            </div >
+          </div>
+          <p class="address-title">{{ 'SIGNUP.CONFIRM_ADDRESS_TAG' | translate }}</p>
+          <div class="form-group">
+            <input type="text" formControlName="streetNumber" class="form-control" placeholder="{{ 'INPUT.FLAT_NO' | translate }}" />
+            <div *ngIf="stepTwoSubmitted && f2.streetNumber.errors" class="text-danger error-label">
+              <div *ngIf="f2.streetNumber.errors.required"> {{ 'ERROR.STREET_NUMBER' | translate }}</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" formControlName="street" class="form-control" placeholder="{{ 'INPUT.STREET' | translate }}" />
+            <div *ngIf="stepTwoSubmitted && f2.street.errors" class="text-danger error-label">
+              <div *ngIf="f2.street.errors.required"> {{ 'ERROR.STREET_NAME' | translate }}</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" formControlName="postalCode" class="form-control" placeholder="{{ 'INPUT.ZIP' | translate }}" />
+            <div *ngIf="stepTwoSubmitted && f2.postalCode.errors" class="text-danger error-label">
+              <div *ngIf="f2.postalCode.errors.required"> {{ 'ERROR.ZIP' | translate }}</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" formControlName="city" class="form-control" placeholder="{{ 'INPUT.CITY' | translate }}" />
+            <div *ngIf="stepTwoSubmitted && f2.city.errors" class="text-danger error-label">
+              <div *ngIf="f2.city.errors.required"> {{ 'ERROR.CITY' | translate }}</div>
+            </div>
+          </div>
+          <div class="button-group btn-saveaddress">
+            <input type="button" value="{{ 'SIGNUP.EDIT_ADDRESS' | translate }}" class="btn btn-golden" [disabled]="isSubmitted" (click)="submitAndSave()">
+            <input type="button" value="{{ 'SIGNUP.BACK' | translate }}" (click)="step = 1" class="btn btn-golden btn-next">
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+    <!-- </div>
+  </div>
+   -->

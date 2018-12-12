@@ -1,0 +1,284 @@
+<section class="login-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="logo-container">
+          <a href="javascript:void(0)" class="go-back" routerLink="/">
+            <img src="assets/images/back.png" alt="logo" />
+          </a>
+          <img src="assets/images/logo.png" alt="logo" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 offset-lg-4 col-sm-6 offset-sm-3">
+        <div class="login-signup-container">
+          <ul class="nav-tabs">
+            <li class="nav-item">
+              <a [routerLink]="['/login']" class="nav-link">log in</a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['/signup']" class="nav-link active">sign up</a>
+            </li>
+          </ul>
+
+          <div class="signup-container">
+            <ul class="step-ul">
+              <li>
+                <a [ngClass]="{'link' : true, completed : formSubmitted[1]}" (click)="changeStep(1);">1</a>
+                <!-- <label class="link" *ngIf="!formSubmitted[1]">1</label> -->
+              </li>
+              <li>
+                <a [ngClass]="{'link' : true, completed : formSubmitted[2]}" (click)="changeStep(2);">2</a>
+                <!-- <label class="link" *ngIf="!formSubmitted[2]">2</label> -->
+              </li>
+              <li>
+                <a [ngClass]="{'link' : true, completed : formSubmitted[3]}" (click)="changeStep(3);">3</a>
+                <!-- <label class="link" *ngIf="!formSubmitted[3]">3</label> -->
+              </li>
+              <li>
+                <a [ngClass]="{'link' : true, completed : formSubmitted[4]}" (click)="changeStep(4);">4</a>
+                <!-- <label class="link" *ngIf="!formSubmitted[4]">4</label> -->
+              </li>
+            </ul>
+            <div class="signup-card" *ngIf="step === 1">
+              <h5 class="step-title">{{ 'SIGNUP.TITLE' | translate }}</h5>
+
+              <form (ngSubmit)="submitStepOne()" [formGroup]="signupFromStepOne">
+                <div class="form-group">
+                  <select formControlName="title" class="form-control">
+                    <option value="mr">{{ 'INPUT.MR' | translate }}</option>
+                    <option value="mrs">{{ 'INPUT.MRS' | translate }}</option>
+                    <option value="miss">{{ 'INPUT.MISS' | translate }}</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <input type="text" formControlName="firstname" class=" form-control" placeholder="{{ 'INPUT.FIRST_NAME' | translate }}" />
+                  <div *ngIf="stepOneSubmitted && f1.firstname.errors" class="text-danger error-label">
+                    <div *ngIf="f1.firstname.errors.required"> {{ 'ERROR.FIRST_NAME' | translate }}</div>
+                    <div *ngIf="f1.firstname.errors.pattern"> {{ 'ERROR.FIRST_NAME_NOT_VALID' | translate }}</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" formControlName="lastname" class="form-control" placeholder="{{ 'INPUT.LAST_NAME' | translate }}" />
+                  <div *ngIf="stepOneSubmitted && f1.lastname.errors" class="text-danger error-label">
+                    <div *ngIf="f1.lastname.errors.pattern"> {{ 'ERROR.LAST_NAME_NOT_VALID' | translate }}</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" #mobref (keyup)='allowNumeric(mobref)' formControlName="mobile" maxlength=10 class="form-control"
+                    placeholder="{{ 'INPUT.MOBILE' | translate }}" />
+                  <div *ngIf="stepOneSubmitted && f1.mobile.errors" class="text-danger error-label">
+                    <div *ngIf="f1.mobile.errors.required"> {{ 'ERROR.MOBILE' | translate }}</div>
+                    <div *ngIf="f1.mobile.errors.pattern"> {{ 'ERROR.MOBILE_NOT_VALID' | translate }}</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" formControlName="email" class="form-control" placeholder="{{ 'INPUT.EMAIL' | translate }}" />
+                  <div *ngIf="stepOneSubmitted && f1.email.errors" class="text-danger error-label">
+                    <div *ngIf="f1.email.errors.required"> {{ 'ERROR.EMAIL' | translate }}</div>
+                    <div *ngIf="f1.email.errors.email"> {{ 'ERROR.EMAIL_NOT_VALID' | translate }}</div>
+                  </div>
+                </div>
+                <div class="form-group" *ngIf="!isLoginWithFb">
+                  <input type="password" formControlName="password" class="form-control" placeholder="{{ 'INPUT.PASSWORD' | translate }}" />
+                  <div *ngIf="stepOneSubmitted && f1.password.errors" class="text-danger error-label">
+                    <div *ngIf="f1.password.errors.required"> {{ 'ERROR.PASSWORD' | translate }}</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" formControlName="referalcode" class="form-control" placeholder="{{ 'INPUT.REFERAL' | translate }}" />
+                </div>
+                <div class="form-group mb0">
+                  <label class="fancy-checkbox" *ngIf="isSignupWithTerms">
+                    <input formControlName="agreeTermCondition" type="checkbox">
+                    <span><i></i>
+                      <p>Yes, I agree to the <a routerLink="/quick_links/term_condition" target="_blank">Terms &
+                          Conditions</a>
+                        and the <a routerLink="/quick_links/policy" target="_blank">Privacy Policy</a> of London
+                        Serenity</p>
+                    </span>
+                    <div *ngIf="stepOneSubmitted && f1.agreeTermCondition.errors" class="text-danger error-label">
+                      <div *ngIf="f1.agreeTermCondition.errors.required"> {{ 'ERROR.AGREE' | translate }}</div>
+                    </div>
+                  </label>
+                </div>
+                <div class="form-group mb0">
+                  <label class="fancy-checkbox" *ngIf="isSignupWithTerms">
+                    <input formControlName="interestedInOffers" type="checkbox">
+                    <span><i></i>
+                      <p>{{ 'SIGNUP.OFFER_NOTIFY' | translate }}</p>
+                    </span>
+                  </label>
+                </div>
+                <div class="button-group">
+                  <input type="submit" value="{{'SIGNUP.SAVE_CONTINUE' | translate}}" class="btn btn-golden">
+                  <a href="javascript:void(0)" class=" btn fb-login" *ngIf="!isLoginWithFb" (click)="openFbSignup(content)">
+                    continue with <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </form>
+
+
+              <!-- <p>step: {{step}}</p> -->
+            </div>
+            <div class="signup-card" *ngIf="step === 2">
+              <h5 class="step-title">{{ 'SIGNUP.ADDRESS_TITLE' | translate }}</h5>
+              <p class="appointment-label">{{ 'SIGNUP.APPOINTMENT' | translate }}</p>
+              <!-- <p>step: {{step}}</p> -->
+              <form (ngSubmit)="submitStepTwo()" [formGroup]="signupFromStepTwo" (keydown.enter)="$event.preventDefault()">
+                <div class="form-group">
+                  <input type="text" formControlName="location" ngx-google-places-autocomplete #placeRef="ngx-places"
+                    (onAddressChange)="getAddress($event)" (keyup)="resetValidationFlags()" [options]="searchOptions"
+                    class="form-control" placeholder="{{ 'INPUT.ADDRESS' | translate }}" />
+                  <div *ngIf="stepTwoSubmitted && f2.location.errors" class="text-danger error-label">
+                    <div *ngIf="f2.location.errors.required"> {{ 'ERROR.LOCATION' | translate }}</div>
+                  </div>
+                  <div *ngIf="!isGoogleFormatted" class="text-danger error-label">
+                    {{ 'ERROR.GOOGLE_LOCATION' | translate }}
+                  </div>
+                  <div *ngIf="!isPostalCodeDetectedByGoogle" class="text-danger error-label">
+                    <div> {{ 'ERROR.NO_POSTAL_CODE' | translate }}</div>
+                  </div>
+                  <div *ngIf="!isLondonCity" class="text-danger error-label">
+                    <div> {{ 'ERROR.NOT_SERVING_LOC' | translate }}</div>
+                  </div>
+                </div>
+                <p class="p-or">{{ 'SIGNUP.OR' | translate }}</p>
+                <div class="button-group">
+                  <button type="button" (click)="findMe()" class="btn btn-golden">{{ 'SIGNUP.FIND_ME' | translate
+                    }}</button>
+                  <input type="submit" value="{{ 'SIGNUP.NEXT' | translate }}" class="btn btn-golden btn-next">
+                </div>
+              </form>
+              <!-- <p>step: {{step}}</p> -->
+
+            </div>
+            <div class="signup-card" *ngIf="step === 3">
+              <h5 class="step-title">{{ 'SIGNUP.CONFIRM_ADDRESS_TITLE' | translate }}</h5>
+              <form (ngSubmit)="submitForm(false)" [formGroup]="signupFromStepThree">
+                <div class="map-container">
+                  <!-- <img src="assets/images/map.png" class="img-fluid"> -->
+                  <div class="img-fluid">
+                    <agm-map [latitude]="mapAttributes.lat" [longitude]="mapAttributes.lng" [zoomControl]="mapAttributes.zoomControls"
+                      [disableDefaultUI]="true" style="height: 150px">
+                      <agm-marker [latitude]="mapAttributes.lat" [longitude]="mapAttributes.lng" [iconUrl]="mapAttributes.iconUrl"></agm-marker>
+                    </agm-map>
+                  </div>
+                </div>
+                <p class="address-title">{{ 'SIGNUP.CONFIRM_ADDRESS_TAG' | translate }}</p>
+                <div class="form-group">
+                  <input type="text" formControlName="streetNumber" class="form-control" placeholder="{{ 'INPUT.FLAT_NO' | translate }}" />
+                  <div *ngIf="submitted && f3.streetNumber.errors" class="text-danger error-label">
+                    <div *ngIf="f3.streetNumber.errors.required"> {{ 'ERROR.STREET_NUMBER' | translate }}</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" formControlName="street" class="form-control" placeholder="{{ 'INPUT.STREET' | translate }}" />
+                  <div *ngIf="submitted && f3.street.errors" class="text-danger error-label">
+                    <div *ngIf="f3.street.errors.required"> {{ 'ERROR.STREET_NAME' | translate }}</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" formControlName="postalCode" class="form-control" placeholder="{{ 'INPUT.ZIP' | translate }}"
+                    disabled />
+                  <div *ngIf="submitted && f3.postalCode.errors" class="text-danger error-label">
+                    <div *ngIf="f3.postalCode.errors.required"> {{ 'ERROR.ZIP' | translate }}</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" formControlName="city" class="form-control" placeholder="{{ 'INPUT.CITY' | translate }}"
+                    disabled />
+                  <div *ngIf="submitted && f3.city.errors" class="text-danger error-label">
+                    <div *ngIf="f3.city.errors.required"> {{ 'ERROR.CITY' | translate }}</div>
+                  </div>
+                </div>
+                <div class="button-group btn-saveaddress">
+                  <input type="submit" value="{{ 'SIGNUP.SAVE_ADDRESS' | translate }}" class="btn btn-golden">
+                  <!-- <p class="p-or">{{ 'SIGNUP.OR' | translate }}</p>
+                        <button type="button" (click)="submitForm(false)" class="btn btn-golden" [disabled]="isSubmitted">{{
+                          'SIGNUP.CONTINUE_WITHOUT_VERIFY' | translate
+                          }}</button> -->
+                </div>
+              </form>
+              <!-- <p>step: {{step}}</p> -->
+
+            </div>
+
+            <div class="signup-card" *ngIf="step === 4">
+              <h5 class="step-title">{{ 'SIGNUP.VERIFY_MOBILE_TITLE' | translate }}</h5>
+              <div *ngIf="!stepThreeSubmitted">
+                <div class="form-group">
+                  <div class="button-group text-center">
+                    <button type="button" (click)="submitStepThree()" class="btn btn-golden" [disabled]="isRequestedForOtp">{{
+                      'SIGNUP.VERIFY_MOBILE_BUTTON' | translate }}</button>
+                    <p class="p-or">{{ 'SIGNUP.OR' | translate }}</p>
+                    <a class="btn btn-golden" [routerLink]="['']">{{
+                      'SIGNUP.NO_VERIFY' | translate }}</a>
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="stepThreeSubmitted">
+                <p class="appointment-label">{{ 'SIGNUP.VERIFY_MOBILE_MSG' | translate }}</p>
+                <form (ngSubmit)="verifyOtp()" [formGroup]="signupFromStepFour">
+                  <div class="form-group">
+                    <input type="text" formControlName="otp" class="form-control" placeholder="OTP" />
+                    <div *ngIf="stepFourSubmitted && f4.otp.errors" class="text-danger error-label">
+                      <div *ngIf="f4.otp.errors.required"> {{ 'ERROR.OTP' | translate }}</div>
+                    </div>
+                  </div>
+                  <div class="button-group text-center">
+                    <button type="button" (click)="submitStepThree()" class="btn btn-golden" [disabled]="isRequestedForOtp">{{
+                      'SIGNUP.RESEND_OTP' | translate
+                      }} <span *ngIf="resendTimer !== 0 ">{{resendTimer}} </span></button>
+                    <input type="submit" value="VERIFY" class="btn btn-golden">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #content let-modal>  
+  <div class="modal-body forgot-modal create-fb-signup">    
+      <form (ngSubmit)="submitFbSignup()" [formGroup]="signupFromFb">
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <img src="assets/images/close.png" alt="logo" />
+        </button>
+        <div class="title-icon text-center">
+          <img src="assets/images/bird-color.png" alt="logo" />
+          <h2 class="page-title">Create your account</h2>
+        </div>
+        <div class="form-group">
+          <label class="fancy-checkbox">
+            <input formControlName="agreeTermCondition" type="checkbox">
+            <span><i></i>
+              <p>Yes, I agree to the <a routerLink="/quick_links/term_condition" target="_blank">Terms & Conditions</a>
+                and the <a routerLink="/quick_links/policy" target="_blank">Privacy Policy</a> of London
+                Serenity</p>
+            </span>
+            <div *ngIf="fbSubmitted && fbForm.agreeTermCondition.errors" class="text-danger error-label">
+              <div *ngIf="fbForm.agreeTermCondition.errors.required"> {{ 'ERROR.AGREE' | translate }}</div>
+            </div>
+          </label>
+        </div>
+        <div class="form-group">
+          <label class="fancy-checkbox">
+            <input formControlName="interestedInOffers" type="checkbox">
+            <span><i></i>
+              <p>{{ 'SIGNUP.OFFER_NOTIFY' | translate }}</p>
+            </span>
+          </label>
+        </div>
+      </form>
+      <div class="button-group text-center">
+        <button type="submit" class="btn btn-golden" (click)="submitFbSignup()">Create</button>        
+      </div>
+      <!-- <p>step: {{step}}</p> -->    
+  </div>
+</ng-template>

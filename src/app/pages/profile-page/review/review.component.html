@@ -1,0 +1,92 @@
+<div class="modal-body add-review-modal custom-modal">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <img src="assets/images/close.png" alt="logo" />
+    </button>
+    <form>
+        <div *ngIf="addReview || viewReview">
+            <div class="title-icon text-center">
+                <img src="assets/images/bird-color.png" alt="logo" />
+                <h2 class="page-title massage">Review</h2>
+            </div>
+            <div class="form-group">
+                <!-- <ngb-rating [(rate)]="currentRate" max="5" *ngIf="addReview"></ngb-rating> -->
+                <ngb-rating [(rate)]="currentRate" max="5" *ngIf="addReview">
+                  <ng-template let-fill="fill" let-index="index">
+                    <span class="fa fa-star" [class.filled]="fill === 100"></span>
+                  </ng-template>
+                </ngb-rating>
+                <app-rating [rating]="currentRate" *ngIf="viewReview"></app-rating>
+                <!-- <ul class="rated-star">
+                    <li>
+                    <i class="fa fa-star colored" aria-hidden="true"></i>              
+                    </li>
+                    <li>
+                    <i class="fa fa-star colored" aria-hidden="true"></i>              
+                    </li>
+                    <li>
+                    <i class="fa fa-star" aria-hidden="true"></i>              
+                    </li>
+                    <li>
+                    <i class="fa fa-star" aria-hidden="true"></i>              
+                    </li>
+                    <li>
+                    <i class="fa fa-star" aria-hidden="true"></i>              
+                    </li>
+                </ul> -->
+            </div>
+            <div class="form-group">
+                <textarea name="review" [(ngModel)]="review" class="form-control" placeholder="Write here...." rows="7" [disabled]="viewReview"></textarea>
+            </div>
+        </div>
+        <div class="form-group" *ngIf="addGratuity">
+          <label class="custom-label">Would you like to add gratuity ?</label>
+          <ul class="gratuity-ul">
+            <li>              
+                <label class="fancy-radio style-1">
+                  <input type="radio" name="gratuity" value="2" [(ngModel)]="gratuity"><span><i></i>
+                  £ 2
+                </span>
+              </label>            
+            </li>
+            <li>              
+                <label class="fancy-radio style-1">
+                  <input type="radio" name="gratuity" value="5" [(ngModel)]="gratuity"><span><i></i>
+                  £ 5
+                </span>
+              </label>            
+            </li>
+            <li>              
+                <label class="fancy-radio style-1">
+                  <input type="radio" name="gratuity" value="10" [(ngModel)]="gratuity"><span><i></i>
+                  £ 10
+                </span>
+              </label>            
+            </li>
+            <li>              
+                <label class="fancy-radio style-1">
+                  <input type="radio" name="gratuity" value="15" [(ngModel)]="gratuity"><span><i></i>
+                  £ 15
+                </span>
+              </label>            
+            </li>
+            <li>              
+                <label class="fancy-radio style-1">
+                  <input type="radio" name="gratuity" value="No, Thank you" [(ngModel)]="gratuity"><span><i></i>
+                  No, Thank you
+                </span>
+              </label>            
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="viewGratuity">
+            <div class="title-icon text-center">
+                <img src="assets/images/bird-color.png" alt="logo" />
+                <h2 class="page-title massage">Gratuity</h2>
+            </div>
+          <span>Gratuity amount is £ {{reviewData.gratuity}}</span>
+        </div>
+        <div class="button-group text-center" *ngIf="!viewReview && !viewGratuity">
+            <input type="submit" name="" value="submit" class="btn btn-golden" (click)="submitReview()">
+        </div>
+    </form>
+  </div>

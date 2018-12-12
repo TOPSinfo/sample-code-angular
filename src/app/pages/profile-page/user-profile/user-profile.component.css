@@ -1,0 +1,47 @@
+.max-height-200 { max-height: 200px; }
+.profile-signup-card .button-group { margin-top: 36px; padding: 0 36px; }
+.profile-signup-card .button-group .btn.new-password { background: #bcbec0; }
+.profile-add-address { margin-top: 26px; }
+.profile-add-address .form-group { position: relative; margin-bottom: 18px; }
+.profile-add-address .form-group label { font-size: 1.6rem; font-family: 'SackersGothicStd-Light'; font-weight: normal; letter-spacing: 1px; color: #00172c; }
+.profile-add-address .form-group img { position: absolute; right: 0px; top: 0px; }
+.profile-add-address .form-control {	
+	padding-right: 30px;
+}
+.profile-add-address textarea.form-control {		
+	text-align: left;    
+    line-height: 20px;
+    padding: 10px 0;
+    padding-right: 30px;
+    resize: none;
+    height: auto;
+}
+.profile-add-address .form-control::-webkit-input-placeholder { 
+  color: #959595;
+}
+.profile-add-address .form-control::-moz-placeholder { 
+  color: #959595;
+}
+.profile-add-address .form-control:-ms-input-placeholder { 
+  color: #959595;
+}
+.profile-add-address .form-control:-moz-placeholder { 
+  color: #959595;
+}
+.profile-add-address .button-group {
+  margin-top: 40px;
+}
+.change-password.forgot-modal .form-group { margin: 18px 0 20px; }
+.change-password.forgot-modal .button-group { margin-top: 40px; }
+@media only screen and (max-width:1199px) and (min-width:1025px) {
+	.profile-signup-card .button-group, .profile-add-address .button-group { padding: 0px; }
+}
+@media only screen and (max-width:1024px) and (min-width:992px) {
+	.profile-signup-card .button-group, .profile-add-address .button-group { padding: 0px; }
+}
+@media only screen and (max-width:991px) and (min-width:768px) {
+	/*.profile-add-address { margin-top: 40px; }*/
+}
+@media only screen and (max-width:767px) and (min-width:320px) {
+	/*.profile-add-address { margin-top: 40px; }*/
+}

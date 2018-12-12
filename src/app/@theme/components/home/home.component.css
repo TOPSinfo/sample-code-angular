@@ -1,0 +1,231 @@
+.search-results { height: 100%; }
+.banner { position: relative; float: left; height: 470px; width: 100%; background: url('../../../../assets/images/banner.jpg'); background-position: center; background-size: cover; }
+.banner>figure, .banner>figure>img { float: left }
+.banner:before { content: ''; position: absolute; height: 100%; width: 100%; background: rgba(0, 0, 0, 0.4); left: 0; top: 0 }
+.banner-content { position: absolute; width: 100%; height: 100%; padding: 40px 0; text-align: center; display: flex; flex-direction: column; align-items: center }
+.banner-content .icon { margin-bottom: 20px; height: auto; width: auto }
+.banner-content .tagline { font-size: 2.2rem; color: #fff; letter-spacing: 1px; font-family: 'SackersGothicStd-Light'; font-weight: normal; margin-bottom: 10px }
+.banner-content p { font-size: 1.5rem; font-family: 'SackersGothicStd-Light'; font-weight: normal; letter-spacing: 1px; color: #fff }
+.banner-content .form { margin-top: 60px; width: 625px; max-width: 100% }
+.banner-content .search-img { float: left; padding: 4px 22px; }
+.input-btn-grp { height: 60px }
+.input-btn-grp { display: flex; border-radius: 6px; overflow: hidden ; background: #fff;}
+.input-btn-grp .input { position: relative; flex: 1 }
+.input-btn-grp .input .clear-text { position: absolute; height: 15px; top: 50%; transform: translateY(-50%); right: 26px; }
+.input-btn-grp .input .form-control { width: 100%; font-weight: 300; }
+.input-btn-grp .input .form-control:hover, .input-btn-grp .input .form-control:focus, .input-btn-grp .input .form-control:active { box-shadow: none; outline: 0; border-color: #fff }
+.input-btn-grp .btn-search { flex: none; padding: 0 32px 5px; letter-spacing: 4px; font-size: 2rem; font-family: 'SackersGothicStd-Light'; font-weight: normal; background: #bc9f6e; color: #fff; border: none }
+.input-btn-grp input { padding: 0 50px 0 25px; height: 60px; line-height: normal; border-radius: 0; font-size: 1.5rem; border: none; letter-spacing: 1px; }
+.treatment { clear: left }
+.treatment-container { position: relative; margin-top: -107px; width: 100%; float: left; padding: 50px 100px 40px; background: #012e58; border-radius: 6px }
+.treatment-item { margin: 50px 0 }
+.treatment-item figure { position: relative; height: 150px }
+.treatment-item figure img { margin: 0 auto; display: table; max-height: 150px }
+.treatment-name { margin: 30px 0 0 0; text-align: center; font-size: 1.8rem; color: #bc9f6e; font-family: 'SackersGothicStd-Medium'; font-weight: normal; letter-spacing: 1px }
+.treatment-item figure:before { content: ''; position: absolute; height: 8px; width: 8px; border-radius: 100%; bottom: -22px; left: 50%; transform: translateX(-50%) }
+.treatment-item.massage figure:before { background: #77adc8 }
+.treatment-item.beauty figure:before { background: #c18f9a }
+.treatment-item.fitness figure:before { background: #40a279 }
+.treatment-item.hair_makeup figure:before { background: #9b8daf; }
+.treat-detail-container { margin-top: 90px; text-align: center }
+.treat-detail-container .title { font-family: 'hijrnotes_personal_use_onlyRg'; font-weight: 100; text-align: center; color: #bc9f6e; font-size: 3.6rem; margin-bottom: 28px }
+.treat-detail-container .desc { font-family: 'SackersGothicStd-Light'; font-size: 1.6rem; font-weight: normal; color: #012e58; letter-spacing: 1px; margin-bottom: 48px; line-height: 1.2 }
+
+.wherever { padding: 100px 0 140px; position: relative }
+.wherever:after { content: ''; position: absolute; background: url('../../../../assets/images/bgleft.png') no-repeat; width: 225px; height: 400px; top: 86px; left: -6px }
+.location-slider { margin-top: 26px }
+.carousel:focus { outline: 0 }
+.where-container { text-align: center }
+.where-container figure { display: inline-block; width: 212px; height: 212px; position: relative; border: 7px solid #e4d9c5; border-radius: 100% }
+.where-container figure>img { border: 5px solid #bc9f6e; border-radius: 100% }
+.where-container .content { margin-top: 34px }
+.where-container .content .place { font-family: 'SackersGothicStd-Light'; font-size: 2.6rem; color: #012e58; margin-bottom: 35px; font-weight: normal; letter-spacing: 1px }
+.wherever .carousel-control-prev-icon, .testimonial .carousel-control-prev-icon { background-image: url('../../../../assets/images/leftnav.png') }
+.wherever .carousel-control-prev { left: -48px; }
+.wherever .carousel-control-next { right: -48px; }
+.wherever .carousel-control-next-icon, .testimonial .carousel-control-next-icon { background-image: url('../../../../assets/images/rightnav.png') }
+.wherever .carousel-control-next-icon, .wherever .carousel-control-prev-icon, .testimonial .carousel-control-next-icon, .testimonial .carousel-control-prev-icon { height: 33px; width: 16px; cursor: pointer }
+.wherever .carousel-indicators { bottom: -30px }
+.wherever .carousel-indicators li, .testimonial .carousel-indicators li { width: 6px; height: 6px }
+.wherever .carousel-indicators li:before, .testimonial .carousel-indicators li:before { top: 0; width: 6px; height: 6px; background: #13549e; border-radius: 100% }
+.wherever .carousel-indicators li.active:before, .testimonial .carousel-indicators li.active:before { background: #012e58 }
+.wherever .carousel-control-next, .wherever .carousel-control-prev { top: 87px; align-items: normal }
+.expert-therapist { position: relative; }
+.expert-therapist:before { content: ''; background: url('../../../../assets/images/bgright.png') no-repeat; position: absolute; width: 362px; height: 354px; background-position: right top; top: -218px; right: 0; z-index: 1; }
+
+.testimonial { padding: 80px 0 340px }
+.testimonial .carousel-control-prev { left: -62px; }
+.testimonial .carousel-control-next { right: -62px; }
+.testimonial-container .name, .testimonial-container .city { font-family: 'SackersGothicStd-Light'; color: #012e58; font-weight: normal; letter-spacing: 1px }
+.testimonial-container { text-align: center }
+.testimonial-container .content { margin-top: 25px }
+.testimonial-container .name { font-size: 2.6rem; margin-bottom: 2px }
+.testimonial-container .city { font-size: 1.6rem }
+.testimonial-container .comment { padding: 35px 80px; font-size: 1.4rem; color: #012e58; line-height: 1.8; font-weight: 300; text-align: center }
+.testimonial  .carousel-indicators { bottom: -5px }
+.download-app { background: #012e58; float: left; width: 100% }
+.mobile-app { position: relative; margin-top: -194px; width: 100%; margin-left: auto; padding-bottom: 94px; }
+.download-app-content { width: 560px; max-width: 100%; margin: 22px auto 0; }
+.download-app-content P { color: #ffffff; font-size: 1.4rem; line-height: 1.7; margin-top: 36px; font-weight: 300; letter-spacing: 1px; }
+.download-app-content .appstore-android { display: block; margin-top: 34px; }
+.download-app-content .appstore-ios { display: block; margin-top: 10px; }
+
+.client-container { background: #012e58; padding: 62px 40px; border-radius: 6px; margin-top: -140px }
+.client-container .client-logos { margin-top: 63px; display: flex; align-items: center; justify-content: center }
+.client-container .client-logos .logo { flex: 1; text-align: center }
+.client-container .client-info 	{ margin-top: 75px; padding-top: 55px; display: flex; align-items: baseline; justify-content: center; position: relative;}
+.client-container .client-info:before 	{ content: ""; position: absolute; top: 0; left: 50%; height: 1px; width: 131px; transform: translate(-50%); background: #af976c;}
+.client-info .info-logo 	{ flex: 1; text-align: center;}
+.client-info .info-logo p 	{ color: #fff; font-size: 1.3rem; margin-top: 35px; line-height: 18px; font-weight: 300; letter-spacing: 1px;}
+.info-logo .recommended-by 	{ margin-top: 30px; }
+.info-logo .recommended-by img { padding: 0 12px; }
+.gift-card { padding: 126px 0 86px; background: #eeeeee; margin-top: -60px; }
+.title-icon img { margin-bottom: 35px; }
+.title-icon .subtitle { color: #012e58; font-size: 1.6rem; font-family: 'SackersGothicStd-Light'; font-weight: normal; margin-top: 38px; letter-spacing: 1px; line-height: 1.2; }
+.gift-card figure.giftcard { margin-top: 75px; }
+.gift-card figure.giftcard>img { margin: 0 auto; display: table; }
+.product-partner { background: url('../../../../assets/images/product_partner.jpg') no-repeat; padding: 64px 0 164px; }
+.product-partner .title-icon .subtitle { color: #fff; margin-top: 45px; }
+.products { margin-top: -100px; padding-bottom: 72px; }
+.product-slider { position: relative; background: #012e58; padding: 80px 0; border-radius: 6px; }
+.product-slider:before { content: ''; background: url('../../../../assets/images/productbg.jpg') no-repeat; position: absolute; width: 100%; height: 100%; z-index: -1; bottom: -34px; right: -34px; background-position: bottom right; }
+.products .product-slider .product-content { text-align: center; color: #fff; padding: 0 50px; }
+.slick-track:hover,
+.slick-track:focus,
+.slick-track:active{
+	outline: 0;
+}
+.products .product-slider .product-content img { margin: 0 auto; display: table; }
+.products .product-slider .product-content p { font-size: 1.3rem; line-height: 1.4; color: #fff; font-weight: 200; letter-spacing: 1px; }
+.products .product-slider .product-content .description { padding: 28px; position: relative; }
+.products .product-slider .product-content .description .shadow-img { position: absolute; left: 50%; transform: translateX(-50%); top: 0; }
+.products .product-slider .product-content .name { font-family: 'SackersGothicStd-Light'; font-size: 1.6rem; font-weight: normal; color: #fff; margin-bottom: 5px; letter-spacing: 1px; }
+.products .product-slider .product-content .price { font-family: 'SackersGothicStd-Light'; font-weight: normal; font-size: 1.6rem; letter-spacing: 1px; color: #bc9f6e; margin: 20px 0 30px; }
+.products .product-slider .slick-slide { transform: scale(0.8); transition: .3s ease-in-out all; outline: 0; box-shadow: none; }
+.products .product-slider .slick-slide.slick-center { transform: scale(1) }
+.products .product-slider .slick-slide.slick-center > .slider-content { margin-top: 75px }
+.products .product-slider .slick-prev { left: 10px; height: 19px; width: 26px; z-index: 9 }
+.products .product-slider .slick-next { right: 10px; height: 19px; width: 26px; z-index: 9 }
+.products .product-slider .slick-prev:before { content: ''; background: url('../../../../assets/images/leftarrow.png') no-repeat; width: 26px; height: 19px; position: absolute; left: 0; top: 0 }
+.products .product-slider .slick-next:before { content: ''; background: url('../../../../assets/images/rightarrow.png') no-repeat; width: 26px; height: 19px; position: absolute; left: 0; top: 0 }
+
+.client-container .client-logo-slider { padding: 0; margin-top: 60px }
+.client-container .client-logo-slider .client-logo-content { position: relative; max-height: 40px; min-height: 40px; text-align: center; transition: all 0.5s ease-in; -webkit-transition: all 0.5s ease-in }
+.client-container .client-logo-slider .slick-slide:focus 	{ outline: none; }
+.client-container .client-logo-slider .client-logo-content img { margin: 0 auto }
+.client-container .client-logo-slider .client-logo-content figure { display: inline-block; position: absolute; top: 0; left: 50%; transform: translateX(-50%) }
+.client-container .client-logo-slider .slick-prev { left: 10px; height: 19px; width: 26px; z-index: 9 }
+.client-container .client-logo-slider .slick-next { right: 10px; height: 19px; width: 26px; z-index: 9 }
+.client-container .client-logo-slider .slick-prev:before { display: none; content: ''; background: url('../../../../assets/images/leftarrow.png') no-repeat; width: 26px; height: 19px; position: absolute; left: 0; top: 0 }
+.client-container .client-logo-slider .slick-next:before { display: none; content: ''; background: url('../../../../assets/images/rightarrow.png') no-repeat; width: 26px; height: 19px; position: absolute; left: 0; top: 0 }
+@media only screen and (min-width:1400px) {
+	.banner { height: 662px; }
+	.banner-content { padding: 128px 0; }
+}
+@media only screen and (max-width:1199px) and (min-width:1025px) {
+	.expert-therapist:before { right: -100px; }
+}
+@media only screen and (max-width:1024px) and (min-width:992px) {
+	.expert-therapist:before { right: 0; width: 262px;background-position: left top; }
+	.wherever { padding: 80px 0 100px; }
+	.banner { height: 520px; background-position: center; }
+	.therapist-container .therapist-slider .slider-content { margin-left: 20px; margin-right: 20px; }
+	.banner-content .icon{margin-top: 30px;}
+}
+@media only screen and (max-width:991px) and (min-width:768px) {
+	.banner { height: 520px; background-position: center; }
+	.treatment-item { margin: 25px 0; }
+	.banner-content .icon{margin-top: 30px;}
+	.treat-detail-container .desc { font-size: 1.4rem; }
+	.treat-detail-container .title { font-size: 3rem; }
+	.wherever:after, .expert-therapist:before { content: none; }
+	.wherever { padding: 80px 0 100px; }
+	.wherever .carousel-control-next { right: -30px; }
+	.wherever .carousel-control-prev { left: -30px; }
+	.products .product-slider .slick-slide { -webkit-transform: scale(1); transform: scale(1); }
+	.client-container .client-logos { flex-wrap: wrap; margin-top: 30px; }
+	.client-container .client-logos .logo { padding: 10px 0; }
+	.client-container { margin-top: 20px; }
+	.testimonial { padding: 60px 0 260px; }
+	.testimonial .carousel-control-next { right: -35px; }
+	.testimonial .carousel-control-prev { left: -35px; }
+	.mobile-app { padding-bottom: 60px; }
+
+}
+@media only screen and (max-width:767px) and (min-width:320px) {
+	html {font-size: 55%;}
+	.header .logo img{width: 100px;padding: 6px 0;}
+	.banner { height: 300px; background-size: cover; background-repeat: no-repeat; background-position: -50px 0; }
+	.banner-content .tagline {font-size: 2rem;}
+	.banner-content p {font-size: 1.4rem;}
+	.banner-content { padding: 15px 10px; }
+	.banner-content .form { margin-top: 25px; max-width: calc(100% - 40px); }
+	.banner-content .icon {    margin-bottom: 10px;margin-top: 15px;}
+	.banner-content .icon img {height: 30px;}
+	.treat-detail-container .desc { margin-bottom: 30px; }
+	.treatment-container { margin-top: -30px; margin-left: 15px; margin-right: 15px; width: calc(100% - 30px); padding: 30px 30px 40px; }
+	.treatment-item figure { height: 100px; }
+	.treatment-item figure img { max-height: 100px; }
+	.treatment-item { margin: 20px 5px; }
+	.treat-detail-container { margin-top: 40px; }
+	.treatment-name { font-size: 1.6rem; }
+	.client-container { padding: 40px 20px; margin-top: -23px; margin-left: 15px; margin-right: 15px; }
+	.client-container .client-logo-slider .slick-prev { left: -10px; }
+	.client-container .client-logo-slider .slick-next { right: -10px; }
+	.client-container .client-logos { flex-wrap: wrap; margin-top: 30px; }
+	.client-container .client-logos .logo { padding: 10px 0; }
+	.client-container .client-logo-slider .slick-prev:before, .client-container .client-logo-slider .slick-next:before { display: block; }
+	.client-container .slick-dots li button:before { color: #d7c7ab; opacity: 1; }
+	.client-container .slick-dots li { margin: 0px; }
+	.client-container .slick-dots li.slick-active button:before { color: #bc9f6e; opacity: 1; }
+	.client-container .client-info { margin-top: 50px; padding-top: 50px; display: inherit; }
+	.client-info .info-logo { width: 50%; display: inline-table; vertical-align: top; margin-bottom: 10px; padding: 0 5px;}
+	.client-info .info-logo img { max-height: 32px; }
+	.client-info .info-logo p { margin-top: 20px; font-size: 1.2rem;}
+	.client-info .info-logo p br{display: none;}
+	.client-container .client-logo-slider {margin-top: 40px;}
+	.client-logo-slider .slick-dots { bottom: -25px;}
+	.wherever { padding: 50px 0 70px; }
+	.wherever:after { height: 267px; left: -200px; }
+	.wherever .carousel-control-prev { left: 10px; }
+	.wherever .carousel-control-next { right: 10px; }	
+	.where-container figure { width: 160px; height: 160px; }
+	.where-container figure>img{max-width: 100%;}
+	.wherever .carousel-control-next, .wherever .carousel-control-prev { top: 50px; }
+	.slick-dots li button:before { color: #d7c7ab !important; opacity: 1 !important; }
+	.slick-dots li { margin: 0 !important; width: 10px; }
+	.slick-dots li.slick-active button:before { color: #bc9f6e !important; opacity: 1 !important; }
+	.slick-dotted.slick-slider { margin-bottom: 20px !important; }
+	.therapist-slider .slick-dots { bottom: -36px; }
+	.title-icon img { margin-bottom: 20px; }
+	.title-icon .subtitle { margin-top: 20px; }
+	.product-slider { margin: 0 25px; }
+	.products .product-slider .product-content .description { padding: 28px 0; }
+	.products .product-slider .slick-next, .products .product-slider .slick-prev { top: 85px; }
+	.product-partner, .product-slider { padding: 40px 0; }
+	.product-partner .title-icon .subtitle { margin-top: 30px; padding-bottom: 50px; }
+	.products { margin-top: -48px; padding-bottom: 40px; }
+	.products .product-slider .slick-slide { -webkit-transform: scale(1); transform: scale(1); }
+	.product-slider:before { bottom: -50px; right: -40px; height: 150px; }
+	.gift-card { padding: 100px 0 40px; }
+	.gift-card .mt60 { margin-top: 40px; }
+	.gift-card figure.giftcard { margin-top: 30px; }
+	.input-btn-grp { height: 50px; }
+	.input-btn-grp input { height: 50px; padding: 0 30px 0 15px;}
+	.input-btn-grp .input .clear-text{right: 8px;}
+	.input-btn-grp .btn-search { padding: 0 15px 6px; font-size: 1.6rem; }
+	.mobile-app { margin-top: 40px; padding-bottom: 40px; }
+	.testimonial { padding: 50px 0 40px; }
+	.testimonial .carousel-control-next { right: 0; }
+	.testimonial .carousel-control-prev { left: 0; }
+	.testimonial-container .comment { padding: 0px 60px 30px; }
+	.download-app-content { margin: 36px auto 0; }
+	.download-app-content P { margin-top: 24px; }
+	.download-app-content .appstore-android, .download-app-content .appstore-ios { display: inline-block; margin-top: 34px; vertical-align: middle; margin: 34px 8px 0; }
+	.download-app { margin-top: 130px; }
+	.info-logo .recommended-by img { width: 100%; max-height: inherit; }
+	.info-logo .recommended-by { margin-top: 10px; }
+	.expert-therapist:before { height: 220px; width: 25px; top: -100px; background-position: 0 0; }
+	.where-container .content { margin-top: 10px; }
+	.where-container .content .place { margin-bottom: 30px; font-size: 2.4rem; }
+}

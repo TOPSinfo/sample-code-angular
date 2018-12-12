@@ -1,0 +1,61 @@
+/* Time Slot CSS */
+.time-slot-edit-container { 
+    position: relative; 
+    /* padding-bottom: 30px;  */
+}
+.time-slot-edit-container .next-time { position: absolute; width: 100%; height: 31px; background: #bc9f6e; bottom: 0; left: 0; padding: 10px; text-align: center; }
+.time-slot-edit-ul { 
+    /* overflow: auto;  */
+    width: 100%; 
+    /* height: 288px;  */
+}
+.time-slot-edit-ul li { height: 32px; padding: 0 4px; margin: 0 8px; border-bottom: 1px solid #d4d4d4; }
+.time-slot-edit-ul li a { line-height: 32px; font-size: 1.4rem; font-family: 'Montserrat', sans-serif; font-weight: 300; color: #00172c; letter-spacing: 0.7px; white-space: nowrap; }
+
+
+/* Therapist Popover CSS */
+.therapist-list { width: 210px; padding: 10px 6px; }
+.therapist-list ul li { padding: 10px 2px; border-bottom: 1px solid #ebebeb; }
+.therapist-list ul li:last-child { border-bottom: none; }
+.therapist-list ul li .fancy-radio input[type="radio"]+span { color: #012e58; font-size: 1.4rem; font-weight: 500; letter-spacing: 0.8px; }
+.therapist-list ul li .fancy-radio input[type="radio"]:checked + span { color: #bc9f6e; }
+
+/* General Popover CSS */
+:host /deep/ .popover { border: 1px solid #bc9f6e; border-radius: 0; max-width: 500px; }
+:host /deep/ .process-title .popover-body { padding: 0; }
+:host /deep/ .popover .arrow::before { border-bottom-color: #bc9f6e; }
+:host /deep/ .popover .arrow::after, 
+:host /deep/ .popover .arrow::before { border-width: 0 .8rem .8rem .8rem; }
+:host /deep/ .bs-popover-bottom { margin-top: .8rem; }
+:host /deep/ .bs-popover-bottom .arrow { top: calc((.68rem + 1px) * -1); margin-left: -8px !important; }
+
+/* Datepicker CSS */
+:host /deep/ .ngb-dp-months { padding: 0 16px 30px 16px; }
+:host /deep/ .ngb-dp-header  .custom-select { border: none; font-size: 1.6rem; font-family: 'SackersGothicStd-Light'; height: auto; text-transform: lowercase; color: #bc9f6e; padding: 0 0 6px; }
+:host /deep/ .ngb-dp-header { margin: 20px 50px; background-color: transparent !important; }
+:host /deep/ .ngb-dp-weekdays { background-color: transparent !important; border-bottom: none !important; }
+:host /deep/ .ngb-dp-weekday { font-family: 'SackersGothicStd-Light'; font-size: 1rem; font-style: normal !important; width: 36px !important; margin: 0 6px; text-transform: lowercase; color: #012e58 !important; }
+:host /deep/ .ngb-dp-day .bg-primary { background-color: #bc9f6e !important; position: relative; }
+:host /deep/ .ngb-dp-day .bg-primary:after { content: ''; position: absolute; left: 0; top: 0; width: 36px; height: 36px; border: 3px solid #ebe2d3; border-radius: 100%; }
+:host /deep/ .ngb-dp-day { height: 36px !important; width: 36px !important; margin: 6px; }
+:host /deep/ .ngb-dp-day .text-muted { color: #b5b5b5 !important; }
+:host /deep/ .ngb-dp-day .btn-light { font-size: 1.2rem; line-height: 36px; height: 36px !important; width: 36px !important; font-family: 'Montserrat', sans-serif; letter-spacing: 1.5px; font-weight: 300; color: #012e58; border-radius: 100% !important }
+:host /deep/ .ngb-dp-navigation-chevron { border: none !important; }
+:host /deep/ .ngb-dp-arrow .ngb-dp-arrow-btn { background: url('../../../../assets/images/datepicker-left.png') no-repeat; background-position: center; }
+:host /deep/ .ngb-dp-arrow.right .ngb-dp-arrow-btn { background: url('../../../../assets/images/datepicker-right.png') no-repeat; background-position: center; }
+
+
+
+/* Length & Add ON Modal CSS */
+.length-addon-modal .title { font-family: 'SackersGothicStd-Medium'; font-size: 2rem; letter-spacing: 0.8px; color: #bc9f6e; margin: 14px 0; }
+.length-addon-modal .length-addon-content { padding: 0 54px 6px; }
+.length-addon-modal .length-addon-list { margin-top: 38px; margin-bottom: 46px; }
+.length-addon-modal .length-addon-list li { padding: 15px 0 8px; border-bottom: 1px solid #ebebeb; }
+.length-addon-modal .length-addon-list li:last-child { border-bottom: none; }
+.length-addon-modal .length-addon-list .item { display: block; }
+.length-addon-modal .length-addon-list .item .fancy-radio, .length-addon-modal .length-addon-list .item .fancy-checkbox { width: 100%; }
+.length-addon-modal .length-addon-list .item .fancy-checkbox { margin: 0; }
+.length-addon-modal .length-addon-list .item .fancy-radio input[type="radio"]+span i, .length-addon-modal .length-addon-list .item .fancy-checkbox input[type="checkbox"]+span i { margin-right: 10px; }
+.length-addon-modal .length-addon-list .item .fancy-radio input[type="radio"]+span, .length-addon-modal .length-addon-list .item .fancy-checkbox input[type="checkbox"]+span { font-size: 1.4rem; color: #012e58; font-weight: 500; letter-spacing: 0.7px; display: block; }
+.length-addon-modal .length-addon-list .item .fancy-radio input[type="radio"]:checked+span, .length-addon-modal .length-addon-list .item .fancy-checkbox input[type="checkbox"]:checked+span { color: #bc9f6e; }
+.length-addon-modal .length-addon-list .item .price { float: right; padding: 2px 0; }

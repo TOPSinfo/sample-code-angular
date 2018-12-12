@@ -1,0 +1,550 @@
+<!-- Banner Start -->
+<section class="banner">
+  <div class="banner-content">
+    <figure class="icon">
+      <img src="assets/images/banner-icon.png" alt="">
+    </figure>
+    <p class="tagline"> your place • your time • your treat</p>
+    <p>lorem ipsum dolor sit amet, consectetur </p>
+    <form class="form">
+      <div class="input-btn-grp">
+        <div class="input">
+          <input type="text" name="" ngx-google-places-autocomplete [options]="searchOptions" #placesRef="ngx-places"
+            class="form-control" (onAddressChange)="handleAddressChange($event)" placeholder="Enter your address"
+            [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}" />
+          <a href="javascript:void(0)" class="clear-text"><img src="assets/images/close-search.png" alt="" (click)="clearSearch()"></a>
+
+        </div>
+        <input type="submit" name="" class="btn btn-search" value="search" (click)="submitSearch()" />
+      </div>
+      <img src="assets/images/search.png" class="search-img" alt="">
+
+    </form>
+  </div>
+</section>
+<!-- Banner End -->
+<!-- Treatment Section Start -->
+<section class="treatment">
+  <div class="container" style="display: table;">
+    <div class="treatment-container">
+      <h3 class="page-title">Our treatments</h3>
+      <div class="row">
+        <div class="col-lg-3 col-6 order-lg-2">
+          <div class="treatment-item beauty">
+            <figure>
+              <img src="assets/images/beauty.png" class="img-fluid" alt="Massage" />
+            </figure>
+            <p class="treatment-name">beauty</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6 ">
+          <div class="treatment-item massage">
+            <figure>
+              <img src="assets/images/massage.png" class="img-fluid" alt="Massage" />
+            </figure>
+            <p class="treatment-name">massage</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6 order-lg-3">
+          <div class="treatment-item fitness">
+            <figure>
+              <img src="assets/images/fitness.png" class="img-fluid" alt="Massage" />
+            </figure>
+            <p class="treatment-name">fitness</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6 order-lg-4">
+          <div class="treatment-item hair_makeup">
+            <figure>
+              <img src="assets/images/hair_makeup.png" class="img-fluid" alt="Massage" />
+            </figure>
+            <p class="treatment-name">hair & make-up</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt20">
+<a href="javascript:void(0)" class="btn-golden" [routerLink]="['/treatments']">view all treatments</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-4">
+        <div class="treat-detail-container">
+          <h4 class="title">Your time</h4>
+          <p class="desc">7 days a week <br>8 till midnight <br>from one hour</p>
+          <figure>
+            <img src="assets/images/yourtime.png" class="img-fluid" alt="Your Time">
+          </figure>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <div class="treat-detail-container">
+          <h4 class="title">Your place</h4>
+          <p class="desc">massage & beauty <br>treatments straight <br>to your door</p>
+          <figure>
+            <img src="assets/images/yourplace.png" class="img-fluid" alt="Your Time">
+          </figure>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <div class="treat-detail-container">
+          <h4 class="title">Your treat</h4>
+          <p class="desc">wellness, beauty <br>& fitness treatments <br>at your fingertips</p>
+          <figure>
+            <img src="assets/images/yourtreat.png" class="img-fluid" alt="Your Time">
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="wherever">
+  <div class="container">
+    <h3 class="page-title">Wherever you are</h3>
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <ngb-carousel class="location-slider">
+          <ng-template ngbSlide>
+            <div class="where-container">
+              <figure>
+                <img src="assets/images/where.png" alt="Random first slide">
+              </figure>
+              <div class="content">
+                <p class="place">at your office</p>
+                <a href="javascript:void(0)" class="btn-golden">learn more</a>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="where-container">
+              <figure>
+                <img src="assets/images/where.png" alt="Random first slide">
+              </figure>
+              <div class="content">
+                <p class="place">at your home</p>
+                <a href="javascript:void(0)" class="btn-golden">learn more</a>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="where-container">
+              <figure>
+                <img src="assets/images/where.png" alt="Random first slide">
+              </figure>
+              <div class="content">
+                <p class="place">at your villa</p>
+                <a href="javascript:void(0)" class="btn-golden">learn more</a>
+              </div>
+            </div>
+          </ng-template>
+        </ngb-carousel>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Treatment Section End -->
+<section class="expert-therapist">
+  <div class="container responsive-full">
+    <div class="therapist-container">
+      <div class="content">
+        <h3 class="page-title">Our expert therapists</h3>
+        <div class="therapist-desc">
+          <p>lorem ipsum dolor sit amet, consectetur<br> adipiscing elit, sed do eiusmod tempor</p>
+          <ul>
+            <li>
+              <p>adipiscing elit, sed do eiusmod</p>
+            </li>
+            <li>
+              <p>adipiscing elit, sed do eiusmod</p>
+            </li>
+            <li>
+              <p>adipiscing elit, sed do eiusmod</p>
+            </li>
+          </ul>
+        </div>
+        <div class="therapist-slider">
+          <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem class="slide">
+              <div class="slider-content">
+                <figure>
+                  <img src="assets/images/therapist.png" alt="">
+                </figure>
+                <img src="assets/images/expert.png" alt="">
+                <h5 class="name">Jennifer Lawrence</h5>
+                <ul class="rated-star">
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
+              </div>
+            </div>
+            <div ngxSlickItem class="slide">
+              <div class="slider-content">
+                <figure>
+                  <img src="assets/images/therapist.png" alt="">
+                </figure>
+                <img src="assets/images/expert.png" alt="">
+                <h5 class="name">Jennifer Lawrence</h5>
+                <ul class="rated-star">
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
+              </div>
+            </div>
+            <div ngxSlickItem class="slide">
+              <div class="slider-content">
+                <figure>
+                  <img src="assets/images/therapist.png" alt="">
+                </figure>
+                <img src="assets/images/expert.png" alt="">
+                <h5 class="name">Jennifer Lawrence</h5>
+                <ul class="rated-star">
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
+              </div>
+            </div>
+            <div ngxSlickItem class="slide">
+              <div class="slider-content">
+                <figure>
+                  <img src="assets/images/therapist.png" alt="">
+                </figure>
+                <img src="assets/images/expert.png" alt="">
+                <h5 class="name">Jennifer Lawrence</h5>
+                <ul class="rated-star">
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
+              </div>
+            </div>
+            <div ngxSlickItem class="slide">
+              <div class="slider-content">
+                <figure>
+                  <img src="assets/images/therapist.png" alt="">
+                </figure>
+                <img src="assets/images/expert.png" alt="">
+                <h5 class="name">Jennifer Lawrence</h5>
+                <ul class="rated-star">
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
+              </div>
+            </div>
+            <div ngxSlickItem class="slide">
+              <div class="slider-content">
+                <figure>
+                  <img src="assets/images/therapist.png" alt="">
+                </figure>
+                <img src="assets/images/expert.png" alt="">
+                <h5 class="name">Jennifer Lawrence</h5>
+                <ul class="rated-star">
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
+              </div>
+            </div>
+
+          </ngx-slick-carousel>
+        </div>
+        <div class="seperator"></div>
+        <!-- <div class="text-center">
+          <a href="javascript:void(0)" class="btn-golden btn-md">view all therapists</a>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+<section class="clients">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 offset-lg-1">
+        <div class="client-container">
+          <h3 class="page-title">Some of our clients</h3>
+
+          <div class="client-logo-slider">
+            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfigClient">
+              <div ngxSlickItem class="slide">
+                <div class="client-logo-content">
+                  <figure>
+                    <img src="assets/images/client1.png">
+                  </figure>
+                </div>
+              </div>
+              <div ngxSlickItem class="slide">
+                <div class="client-logo-content">
+                  <figure>
+                    <img src="assets/images/client5.png">
+                  </figure>
+                </div>
+              </div>
+              <div ngxSlickItem class="slide">
+                <div class="client-logo-content">
+                  <figure>
+                    <img src="assets/images/client2.png">
+                  </figure>
+                </div>
+              </div>
+              <div ngxSlickItem class="slide">
+                <div class="client-logo-content">
+                  <figure>
+                    <img src="assets/images/client3.png">
+                  </figure>
+                </div>
+              </div>
+              <div ngxSlickItem class="slide">
+                <div class="client-logo-content">
+                  <figure>
+                    <img src="assets/images/client4.png">
+                  </figure>
+                </div>
+              </div>
+              <div ngxSlickItem class="slide">
+                <div class="client-logo-content">
+                  <figure>
+                    <img src="assets/images/client1.png">
+                  </figure>
+                </div>
+              </div>
+            </ngx-slick-carousel>
+          </div>
+
+          <div class="client-info">
+            <div class="info-logo">
+              <img src="assets/images/client-info-logo1.png" alt="">
+              <p>Exclusive provider to 5<br> star hotels and spas in<br> London</p>
+            </div>
+            <div class="info-logo">
+              <img src="assets/images/client-info-logo2.png" alt="">
+              <p>Established in 2008,<br> offering on demand<br> treatments in London</p>
+            </div>
+            <div class="info-logo">
+              <img src="assets/images/client-info-logo3.png" alt="">
+              <p>Run by therapists<br> experts in their<br> field</p>
+            </div>
+            <div class="info-logo">
+              <img src="assets/images/client-info-logo4.png" alt="">
+              <p>Recommended by:</p>
+              <div class="recommended-by">
+                <img src="assets/images/client-info-logo5.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="gift-card">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title-icon text-center">
+          <img src="assets/images/giftcard.png" class="img-fluid" alt="gift icon" />
+          <h3 class="page-title">Gift card</h3>
+          <p class="subtitle">lorem ipsum dolor sit amet, consectetur<br> adipiscing elit, sed do eiusmod tempor</p>
+        </div>
+        <figure class="giftcard">
+          <img src="assets/images/card.png" class="img-fluid" alt="" />
+        </figure>
+        <div class="text-center mt60">
+          <a href="javascript:void(0)" class="btn-golden btn-md">offer a gift card</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="product-partner">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="title-icon text-center">
+          <h3 class="page-title">Our exclusive product partner</h3>
+          <p class="subtitle">
+            lorem ipsum dolor sit amet, consectetur <br>
+            adipiscing elit, sed do eiusmod tempor <br>
+            incididunt ut labore et dolore magna <br>
+            aliqua. ut enim ad minim veniam.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="products">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="product-slider">
+          <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem class="slide">
+              <div class="product-content">
+                <figure>
+                  <img src="assets/images/product1.png" alt="">
+                </figure>
+                <div class="description">
+                  <img src="assets/images/product1shadow.png" class="shadow-img" alt="">
+                  <h5 class="name">nuxe prodigieux®</h5>
+                  <p>enim ad minim veniam, quis nostrud</p>
+                  <!-- <p class="price">£45</p>
+                  <a href="https://www.amazon.com/NUXE-Prodigieux-Body-Lotion-6-7/dp/B017ROE50C" target="_blank" class="btn-golden btn-md">buy</a> -->
+                </div>
+              </div>
+            </div>
+            <div ngxSlickItem class="slide">
+              <div class="product-content">
+                <figure>
+                  <img src="assets/images/product1.png" alt="">
+                </figure>
+                <div class="description">
+                  <img src="assets/images/product1shadow.png" class="shadow-img" alt="">
+                  <h5 class="name">nuxe prodigieux®</h5>
+                  <p>enim ad minim veniam, quis nostrud</p>
+                  <!-- <p class="price">£45</p>
+                  <a href="https://www.amazon.com/NUXE-Prodigieux-Body-Lotion-6-7/dp/B017ROE50C" target="_blank" class="btn-golden btn-md">buy</a> -->
+                </div>
+              </div>
+            </div>
+            <div ngxSlickItem class="slide">
+              <div class="product-content">
+                <figure>
+                  <img src="assets/images/product1.png" alt="">
+                </figure>
+                <div class="description">
+                  <img src="assets/images/product1shadow.png" class="shadow-img" alt="">
+                  <h5 class="name">nuxe prodigieux®</h5>
+                  <p>enim ad minim veniam, quis nostrud</p>
+                  <!-- <p class="price">£45</p>
+                  <a href="https://www.amazon.com/NUXE-Prodigieux-Body-Lotion-6-7/dp/B017ROE50C" target="_blank" class="btn-golden btn-md">buy</a> -->
+                </div>
+              </div>
+            </div>
+            <div ngxSlickItem class="slide">
+              <div class="product-content">
+                <figure>
+                  <img src="assets/images/product1.png" alt="">
+                </figure>
+                <div class="description">
+                  <img src="assets/images/product1shadow.png" class="shadow-img" alt="">
+                  <h5 class="name">nuxe prodigieux®</h5>
+                  <p>enim ad minim veniam, quis nostrud</p>
+                  <!-- <p class="price">£45</p>
+                  <a href="https://www.amazon.com/NUXE-Prodigieux-Body-Lotion-6-7/dp/B017ROE50C" target="_blank" class="btn-golden btn-md">buy</a> -->
+                </div>
+              </div>
+            </div>
+          </ngx-slick-carousel>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="testimonial">
+  <div class="container">
+    <h3 class="page-title">What they say</h3>
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <ngb-carousel class="testimonial-slider">
+          <ng-template ngbSlide>
+            <div class="testimonial-container">
+              <div class="content">
+                <h4 class="name">julien roche</h4>
+                <p class="city">birmingham, united kingdom</p>
+                <ul class="rated-star">
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                </ul>
+                <p class="comment">Amazing massage with Jennifer Lawrence !
+                  I highly recommend her if you want to have a really good time and relax ! Adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                </p>
+
+              </div>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="testimonial-container">
+              <div class="content">
+                <h4 class="name">John deo</h4>
+                <p class="city">birmingham, united kingdom</p>
+                <ul class="rated-star">
+                  <li><i class="fa fa-star colored" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                </ul>
+                <p class="comment">Amazing massage with Jennifer Lawrence !
+                  I highly recommend her if you want to have a really good time and relax ! Adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                </p>
+
+              </div>
+            </div>
+          </ng-template>
+        </ngb-carousel>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="download-app">
+  <div class="mobile-app">
+    <div class="app-bg-resposnive">
+      <img src="assets/images/mobile-app-responsive.png" class="img-fluid" alt="" />
+    </div>
+    <div class="container">
+      <div class="row d-flex align-items-center">
+        <div class="col-lg-4 col-md-4 text-center mobile-hide">
+          <img src="assets/images/app1.png" class="img-fluid" alt="app 1" />
+        </div>
+        <div class="col-lg-4 col-md-4 text-center mobile-hide">
+          <img src="assets/images/app3.png" class="img-fluid" alt="app 1" />
+        </div>
+        <div class="col-lg-4 col-md-4 text-center mobile-hide">
+          <img src="assets/images/app2.png" class="img-fluid" alt="app 1" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <div class="download-app-content">
+            <h3 class="page-title">Download our app</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</p>
+            <a href="https://www.apple.com/in/ios/app-store/" target="_blank" class="appstore-android">
+              <img src="assets/images/android.png" alt="android store" />
+            </a>
+            <a href="https://play.google.com/store?hl=en" target="_blank" class="appstore-ios">
+              <img src="assets/images/ios.png" alt="ios store" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

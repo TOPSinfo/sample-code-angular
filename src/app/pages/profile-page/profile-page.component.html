@@ -1,0 +1,49 @@
+<section class="my-account">
+  <div class="mini-banner">
+    <h3 class="title">my account</h3>
+  </div>
+<div class="my-content" (window:scroll)="onScroll($event)">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-4">
+<aside [ngClass]="{'fixed': fixedClass}" #fixedBox id="fixedBox">
+            <div class="left-bar">
+              <div class="profile-pic">
+                <figure>
+                  <img [src]="userImage" class="img-fluid" />
+                </figure>
+                <p class="name">{{userName}}</p>
+
+                <label class="custom-file-upload" (click)="openUploadDialog()">
+                  <img src="assets/images/edit.png" class="img-fluid" />
+                </label>
+                <!-- <input id="file-upload" type="file" /> -->
+
+              </div>
+              <ul class="account-navigation">
+                <li>
+                  <a [routerLink]="['./appointments']" routerLinkActive="active">appointments</a>
+                </li>
+                <li>
+                  <a [routerLink]="['./wallet']" routerLinkActive="active">wallet</a>
+                </li>
+                <li>
+                  <a [routerLink]="['./refer-friend']" routerLinkActive="active">refer a friend</a>
+                </li>
+                <li>
+                  <a [routerLink]="['./profile']" routerLinkActive="active">my profile</a>
+                </li>
+              </ul>
+              <div class="logout">
+                <a href="javascript:void(0)" class="btn-golden" (click)="logout()">log out</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+<div class="col-lg-9 col-md-8">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

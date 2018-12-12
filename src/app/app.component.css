@@ -1,0 +1,9 @@
+.float-right {
+	float: right !important;
+}
+.max-height-200 {
+    max-height: 200px !important;
+}
+.error-msg {
+    color: red;
+}

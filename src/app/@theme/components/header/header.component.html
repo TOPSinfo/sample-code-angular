@@ -1,0 +1,98 @@
+<!-- Header Start -->
+<header class="header">
+  <div class="offers">
+    <a href="javascript:void(0)">£10 off your first treatment</a>
+  </div>
+  <div class="container-fluid">
+    <div class="row logo-login">
+      <div class="col-1 col-lg-4 align-self-center d-none d-lg-block">
+        <a href="tel:02070001888" class="call-ul">
+          <i class="icon icon-call"></i>
+          <span>0207 000 1888</span>
+        </a>
+      </div>
+      <div class="col-12 col-lg-4 align-self-center">
+        <a [routerLink]="['/']" class="logo">
+          <img src="assets/images/logo.svg" width="128" alt="logo" />
+        </a>
+        <div ngbDropdown class="login-user login-user-device" *ngIf="loggedIn">
+          <a class="user-detail" id="dropdownBasic1" ngbDropdownToggle>
+            <span>{{userName}}</span>
+            <img src="{{userImage}}" alt="usr-profile" />
+          </a>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item" [routerLink]="['/my-account/appointments']" routerLinkActive="active">Appointments</button>
+            <button class="dropdown-item" [routerLink]="['/my-account/wallet']">wallet</button>
+            <button class="dropdown-item" [routerLink]="['/my-account/refer-friend']">refer a friend</button>
+            <button class="dropdown-item border-none" [routerLink]="['/my-account/profile']">my profile</button>
+            <button class="btn btn-golden" (click)="logout()">Logout</button>
+          </div>
+        </div>
+        <a *ngIf="!loggedIn" href="javascript:void(0)" class="btn-login-xs" routerLink="/login">{{ 'HOME.Login' |
+          translate }}</a>
+      </div>
+      <div class="col-6 col-lg-4 align-self-center text-right d-none d-lg-block">
+        <div ngbDropdown class="login-user" *ngIf="loggedIn">
+          <a class="user-detail" id="dropdownBasic1" ngbDropdownToggle>
+            <span>{{userName}}</span>
+            <img src="{{userImage}}" alt="usr-profile" />
+          </a>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item" [routerLink]="['/my-account/appointments']" routerLinkActive="active">Appointments</button>
+            <button class="dropdown-item" [routerLink]="['/my-account/wallet']">wallet</button>
+            <button class="dropdown-item" [routerLink]="['/my-account/refer-friend']">refer a friend</button>
+            <button class="dropdown-item border-none" [routerLink]="['/my-account/profile']">my profile</button>
+            <button class="btn btn-golden" (click)="logout()">Log out</button>
+          </div>
+        </div>
+        <ul class="header-login" *ngIf="!loggedIn">
+          <li>
+            <a href="javascript:void(0)" class="btn-login" routerLink="/login">{{ 'HOME.Login' | translate }}</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="btn-therapist" href="http://booking.londonserenity.com/dev/" target="_blank">
+              {{ 'HOME.Zone' | translate }} </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row navigation">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/treatments']" routerLinkActive="active">{{ 'HOME.Treatments' |
+                translate }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  [routerLink]="['/therapists']" routerLinkActive="active">{{ 'HOME.Therapists' | translate }}</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="javascript:void(0);" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                {{ 'HOME.Business' | translate }}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" [routerLink]="['/business/hotels']">serenity at hotels</a>
+                <a class="dropdown-item" [routerLink]="['/business/spas']">serenity at spas</a>
+                <a class="dropdown-item" [routerLink]="['/business/offices']">serenity at offices</a>
+                <a class="dropdown-item" [routerLink]="['/business/events']">serenity at events</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">{{ 'HOME.Pricing' | translate }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">{{ 'HOME.Card' | translate }}</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+<!-- Header End -->

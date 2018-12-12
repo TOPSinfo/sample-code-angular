@@ -1,0 +1,18 @@
+.footer { float: left; width: 100%; color: #aab2b9; background: #00172c; padding: 72px 0 32px 0; }
+.footer .quicklinks li { display: block; }
+.footer .quicklinks li>a { font-size: 1.2rem; font-weight: 300; color: #fff; line-height: 1.8; display: block; letter-spacing: 0.7px;}
+.footer .appstore-android { display: block; margin-top: 10px; margin-bottom: 30px; }
+.footer .appstore-ios { display: block; margin-top: 24px; }
+.footer .social-links { font-size: 0; }
+.footer .social-links>li { font-size: 0; padding: 0 6px; display: inline-block;vertical-align: top; }
+.footer .social-links>li>a { display: inline-block; font-size: 16px; width: 30px; height: 30px; text-align: center; padding: 7px 0;color: #00172c; background: #fff; border-radius: 100%; }
+.footer .border-left { border-left: 1px solid rgba(38, 58, 75, 0.9) !important; }
+.footer .social-links .custom-instagram { background: url('../../../../assets/images/insta.png'); width: 16px; height: 16px; display: block; margin: 0 auto; }
+@media only screen and (max-width:991px) and (min-width:768px) {
+	.footer { padding: 30px 0; }
+}
+@media only screen and (max-width:767px) and (min-width:320px) {
+	.footer { padding: 30px 0; }
+	.footer .appstore-android { margin-bottom: 0; }
+	.footer .appstore-ios { margin-bottom: 0; }
+}

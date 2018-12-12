@@ -1,0 +1,19 @@
+<ngx-ui-loader [fgsColor]="config.fgsColor" [fgsPosition]="config.fgsPosition" [fgsSize]="config.fgsSize"
+[fgsType]="config.fgsType"
+[bgsColor]="config.bgsColor" [bgsOpacity]="config.bgsOpacity" [bgsPosition]="config.bgsPosition"
+[bgsSize]="config.bgsSize"
+[bgsType]="config.bgsType" [pbColor]="config.pbColor" [pbDirection]="config.pbDirection"
+[pbThickness]="config.pbThickness"></ngx-ui-loader>
+
+<div class="app-loading" *ngIf="loaderStart">
+  <div class="logo">
+    <img src="assets/images/inner_round.png" width="100" />
+    <img src="assets/images/outer_loader.png" width="120" class="outer" />
+  </div> 
+</div>
+<app-sample-layout>
+  <router-outlet></router-outlet>
+</app-sample-layout>
+<div class="scroll-top active">
+	<img src="assets/images/up1.svg" width="50" alt="Go to top" (click)="scrollToTop()"/>
+</div>

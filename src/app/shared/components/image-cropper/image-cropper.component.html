@@ -1,0 +1,31 @@
+<div class="modal-body custom-modal">
+  <button type="button" class="close pull-right" aria-label="Close" (click)="close()">
+    <img src="assets/images/close.png" alt="logo" />
+  </button>
+  <div class="title-icon text-center">
+    <img src="assets/images/bird-color.png" alt="logo" />
+    <h2 class="page-title">Upload image</h2>
+  </div>
+  <form novalidate>
+    <div class="form-group text-center">
+      <div class="custom-input">
+        <input type="file" (change)="fileChangeEvent($event)" id="file-1" class="inputfile inputfile-2">
+        <label class="input-label" for="file-1">
+          <span><i class="fa fa-upload" aria-hidden="true"></i> Select image</span>
+        </label>
+      </div>
+      <div *ngIf="!validFileType" class="text-danger error-label">
+        <div>Uploaded file is not a valid image.</div>
+      </div>
+    </div>
+  </form>
+  <div *ngIf="openPopUp">
+    <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="4 / 4"
+      (imageCroppedFile)="imageCroppedFile($event)" (imageCroppedBase64)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+      (loadImageFailed)="loadImageFailed()"></image-cropper>
+  </div>
+  <!-- <img [src]="croppedImage" /> -->
+  <div class="button-group text-center">
+    <button type="button" class="btn btn-golden width-100" (click)="respond()">Upload</button>
+  </div>
+</div>

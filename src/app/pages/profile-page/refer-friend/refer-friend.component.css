@@ -1,0 +1,8 @@
+.referral-container { margin-top: 62px; }
+.referral-container .copy-title { color: #bc9f6e; font-size: 1.9rem; font-family: 'SackersGothicStd-Light'; letter-spacing: 1px; margin-bottom: 20px; }
+.referral-container .frm-input-btn-grp { display: flex; }
+.referral-container .frm-input-btn-grp .form-control { flex: 1; height: 60px; background: #f7f5f5; border: none; border-radius: 6px; border-top-right-radius: 0; border-bottom-right-radius: 0; font-size: 1.4rem; font-weight: 300; letter-spacing: 0.8px; color: #12203f; padding: 0 16px; }
+.referral-container .frm-input-btn-grp .btn { flex: none; width: 124px; border-radius: 6px; border-top-left-radius: 0; border-bottom-left-radius: 0; background: #bc9f6e; color: #fff; font-size: 2rem; font-family: 'SackersGothicStd-Light'; letter-spacing: 4px; padding: 0 0 8px; }
+.how-work { text-align: center; }
+.how-work .heading { color: #bc9f6e; font-size: 1.9rem; font-family: 'SackersGothicStd-Light'; letter-spacing: 1px; margin-top: 8px; margin-bottom: 20px; }
+.how-work p { color: #00172c; font-size: 1.4rem; font-weight: 500; margin-bottom: 20px; line-height: 1.4; letter-spacing: 0.7px; }
